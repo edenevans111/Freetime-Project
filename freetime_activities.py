@@ -1,44 +1,27 @@
-import sys
-import random as rand
+import freetime_activities_pt2
+import random
 
-def add_activity():
-    reading = sys.argv[1]
+def make_list():
     activities = []
-    input_file = open(reading, "r")
-    for line in input_file:
-        activities.append(line)
     while True:
-        activity = input('Enter another activity: ')
-        if activity in activities:
-            print('Already have it. ')
-        else:
-            activities.append(activity)
-            input_file = open(sys.argv[1], 'w')
-            for activity in activities:
-                input_file.write(f'{activity}\n ')
+        activity = input('Add activity: ')
         if activity == '':
             break
+        else:
+            activities.append(activity)
     return activities
-
-
+# I think we also need a function that will turn each item in the list to classes
 
 def main():
-    reading = sys.argv[1]
-    activities = []
-    input_file = open(reading, "r")
-    for line in input_file:
-        activities.append(line)
-    answer = input('What would you like to do: add activities or see activities? ')
-    if answer == 'add activities':
-        add_activity()
-    if answer == 'see activities':
-        reading = sys.argv[1]
-        activities = []
-        input_file = open(reading, "r")
-        for line in input_file:
-            activities.append(line)
-        for activity in activities:
-            print(f'{activity}\n')
+    activities = make_list()
+    answer = input('What would you like to do?:'
+                   'Generate activity'
+                   'Show list of activities')
+    if answer == 'Generate activity':
+        random.choice(activities)
+        print()
+    # we want this one to generate an activity from the list
+    # then we want it to print that activity and its note
 
 if __name__ == '__main__':
     main()
