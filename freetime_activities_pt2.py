@@ -19,11 +19,11 @@ class Activities:
         for note in self.notes:
             print(f'{note}')
 
-    def print_all_activities(self):
+    def print_all_activities(self): # Don't think I need this
         for self.activity in Activities.all_activities:
             print(self.activity)
 
-    def delete_activity(self, activity):
+    def delete_activity(self, activity): # Don't think I need this either
         Activities.all_activities.remove(f'{activity}')
         del self
         print(f'{activity} has been deleted')
